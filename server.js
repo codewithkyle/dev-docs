@@ -5,8 +5,11 @@ const path = require("path");
 const semver = require("semver");
 const express = require("express");
 const watch = require("watch");
+const os = require("os");
+const boxen = require("boxen");
 
 const cwd = process.cwd();
+const interfaces = os.networkInterfaces();
 
 /** Verify Nodejs version */
 const packageJson = require(path.join(__dirname, "package.json"));
@@ -17,11 +20,33 @@ if (!semver.satisfies(process.version, version)) {
     process.exit(1);
 }
 
+const getNetworkAddress = () => {
+    for (const name of Object.keys(interfaces)) {
+        for (const interface of interfaces[name]) {
+            const { address, family, internal } = interface;
+            if (family === "IPv4" && !internal) {
+                return address;
+            }
+        }
+    }
+};
+
 const app = express();
 let port = 5000;
 function startServer() {
     try {
-        app.listen(port, () => console.log(`Preview Docs at http://localhost:${port}`));
+        app.listen(port, () => {
+            let message = "";
+            message += `Local: http://localhost:${port}\n`;
+            message += `Network: http://${getNetworkAddress()}:${port}`;
+            console.log(
+                boxen(message, {
+                    padding: 1,
+                    borderColor: "green",
+                    margin: 1,
+                })
+            );
+        });
     } catch {
         console.error(`Port ${port} was taken, trying port ${port + 1}`);
         port++;

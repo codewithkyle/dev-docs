@@ -1,11 +1,16 @@
 a {
     text-decoration: none;
     color: var(--primary-700);
+    transition: all 150ms var(--ease-in-out);
 }
 
 a:hover,
 a:focus-visible {
     text-decoration: underline;
+    color: var(--primary-800);
+}
+a:active {
+    color: var(--primary-600);
 }
 
 template,
@@ -122,7 +127,7 @@ h6 {
 blockquote {
     padding: 0.75rem;
     padding-right: 1rem;
-    border-left: 4px solid var(--primary-600);
+    border-left: 4px solid var(--primary-500);
     background-color: var(--primary-100);
     margin: 3rem 0;
 }
@@ -180,7 +185,7 @@ nav {
     width: 100%;
     position: sticky;
     top: 0;
-    padding: 1rem 0;
+    padding: 1rem 0 1rem 0.5rem;
     max-height: 100vh;
     margin-bottom: auto;
     overflow-y: auto;
@@ -205,8 +210,10 @@ nav a {
     line-height: 1.618;
     display: flex;
     align-items: center;
-    padding: 0;
+    padding: 0 0.5rem;
+    margin-left: -0.5rem;
     position: relative;
+    user-select: none;
     transition: all 150ms var(--ease-in-out);
 }
 nav a span {
@@ -215,15 +222,13 @@ nav a span {
     transition: all 150ms var(--ease-in-out);
 }
 nav a:hover span {
-    transform: translateX(0.5rem);
-    color: var(--primary-200);
+    color: var(--primary-800);
 }
 nav a:focus-visible span {
-    transform: translateX(0.5rem);
-    color: var(--primary-200);
+    color: var(--primary-800);
 }
 nav a:active span {
-    color: var(--primary-400);
+    color: var(--primary-600);
 }
 nav a::before {
     content: "";
@@ -247,17 +252,27 @@ nav a:hover::before {
 nav a:active::before {
     opacity: 0.15;
 }
+nav a.is-active::before {
+    opacity: 0.08;
+}
 
 @media (prefers-color-scheme: dark) {
     a {
         color: var(--primary-300);
+    }
+    a:hover,
+    a:focus-visible {
+        color: var(--primary-200);
+    }
+    a:active {
+        color: var(--primary-400);
     }
     body {
         color: var(--white);
         background-color: rgb(23, 25, 35);
     }
     blockquote {
-        border-left-color: var(--primary-400);
+        border-left-color: var(--primary-500);
         background-color: transparent;
         position: relative;
     }
@@ -302,5 +317,14 @@ nav a:active::before {
     h1,
     h2 {
         border-bottom-color: var(--grey-800);
+    }
+    nav a:hover span {
+        color: var(--primary-200);
+    }
+    nav a:focus-visible span {
+        color: var(--primary-200);
+    }
+    nav a:active span {
+        color: var(--primary-400);
     }
 }
