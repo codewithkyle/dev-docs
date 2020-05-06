@@ -129,7 +129,7 @@ blockquote {
     padding-right: 1rem;
     border-left: 4px solid var(--primary-500);
     background-color: var(--primary-100);
-    margin: 3rem 0;
+    margin: 2rem 0;
 }
 
 blockquote p {

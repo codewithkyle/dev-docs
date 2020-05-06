@@ -63,7 +63,7 @@ if (!fs.existsSync(docs)) {
 const readme = path.join(docs, "readme.md");
 if (!fs.existsSync(readme)) {
     fs.writeFileSync(readme, "Start here");
-    fs.copyFileSync(path.join(__dirname, "readme.example"), readme);
+    fs.copyFileSync(path.join(__dirname, "readme.md"), readme);
 }
 
 const normalizeCssPath = path.resolve(cwd, "node_modules/normalize.css/normalize.css");

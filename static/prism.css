@@ -9,7 +9,6 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
 code[class*="language-"],
 pre[class*="language-"] {
     color: var(--grey-900);
-    background: transparent;
     font-family: var(--font-mono);
     font-size: var(--font-sm);
     text-align: left;
@@ -35,7 +34,6 @@ pre[class*="language-"] ::-moz-selection,
 code[class*="language-"]::-moz-selection,
 code[class*="language-"] ::-moz-selection {
     text-shadow: none;
-    background: #b3d4fc;
 }
 
 pre[class*="language-"]::selection,
@@ -43,7 +41,6 @@ pre[class*="language-"] ::selection,
 code[class*="language-"]::selection,
 code[class*="language-"] ::selection {
     text-shadow: none;
-    background: #b3d4fc;
 }
 
 @media print {
@@ -64,7 +61,7 @@ pre[class*="language-"] {
 pre[class*="language-"] {
     background: var(--grey-100);
     border: 1px solid var(--grey-300);
-    margin: 3rem 0;
+    margin: 2rem 0;
 }
 
 /* Inline code */
@@ -114,7 +111,6 @@ pre[class*="language-"] {
 .language-css .token.string,
 .style .token.string {
     color: #9a6e3a;
-    background: hsla(0, 0%, 100%, 0.5);
 }
 
 .token.atrule,
@@ -158,7 +154,6 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
     code[class*="language-"],
     pre[class*="language-"] {
         color: rgb(247, 250, 252);
-        background: transparent;
         font-family: var(--font-mono);
         font-size: var(--font-sm);
         text-align: left;
@@ -190,7 +185,7 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
     pre[class*="language-"] {
         background: rgb(26, 32, 44);
         border: 1px solid rgb(45, 55, 72);
-        margin: 3rem 0;
+        margin: 2rem 0;
     }
 
     /* Inline code */

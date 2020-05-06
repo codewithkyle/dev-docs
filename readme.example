@@ -1,9 +1,0 @@
-# Dev Docs
-
-Dev Docs is a simple markdown based documentation management tool.
-
-## Getting Started
-
-Create new documents by adding markdown files to the `docs/` directory.
-
-To group several documents place them together within a subdirectory.
