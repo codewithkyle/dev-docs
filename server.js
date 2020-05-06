@@ -41,6 +41,11 @@ if (!fs.existsSync(readme)) {
     fs.copyFileSync(path.join(__dirname, "readme.example"), readme);
 }
 
+const normalizeCssPath = path.resolve(cwd, "node_modules/normalize.css/normalize.css");
+if (!fs.existsSync(path.join(__dirname, "static", "normalize.css"))) {
+    fs.copyFileSync(normalizeCssPath, path.join(__dirname, "static", "normalize.css"));
+}
+
 const navUtil = require("./lib/navigation");
 let nav = navUtil.buildNavigation(docs);
 
@@ -53,9 +58,11 @@ watch.createMonitor(docs, (monitor) => {
     });
 });
 
+app.use(express.static(path.join(__dirname, "static")));
+
 const renderer = require("./lib/renderer");
 app.get("/", function (req, res) {
-    res.send("Homepage");
+    res.send(renderer.renderFile(readme));
 });
 
 app.get("/*", function (req, res) {

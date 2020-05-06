@@ -19,10 +19,15 @@
     },
     "homepage": "https://github.com/codewithkyle/dev-docs#readme",
     "dependencies": {
+        "brixi": "^0.2.1",
         "express": "^4.17.1",
         "glob": "^7.1.6",
+        "normalize.css": "^8.0.1",
         "semver": "^7.3.2",
         "showdown": "^1.9.1",
         "watch": "^1.0.2"
+    },
+    "scripts": {
+        "brixi": "brixi"
     }
 }
