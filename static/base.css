@@ -92,36 +92,33 @@ ul {
     margin-top: 1rem;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin-top: 4rem;
-}
-
 h1 {
     font-size: var(--font-3xl);
     border-bottom: 1px solid var(--grey-300);
     padding-bottom: 0.5rem;
+    margin-top: 4rem;
 }
 h2 {
     font-size: var(--font-2xl);
     border-bottom: 1px solid var(--grey-300);
     padding-bottom: 0.5rem;
+    margin-top: 4rem;
 }
 h3 {
     font-size: var(--font-xl);
+    margin-top: 3rem;
 }
 h4 {
     font-size: var(--font-lg);
+    margin-top: 2rem;
 }
 h5 {
     font-size: var(--font-md);
+    margin-top: 2rem;
 }
 h6 {
     font-size: var(--font-base);
+    margin-top: 2rem;
 }
 
 blockquote {
@@ -138,7 +135,8 @@ blockquote p {
     color: var(--grey-900);
 }
 
-p code {
+p code,
+li code {
     font-family: var(--font-mono);
     font-size: var(--font-sm);
     display: inline-block;
@@ -268,7 +266,7 @@ nav a.is-active::before {
         color: var(--primary-400);
     }
     body {
-        color: var(--white);
+        color: var(--neutral-100);
         background-color: rgb(23, 25, 35);
     }
     blockquote {
