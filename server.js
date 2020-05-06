@@ -61,8 +61,11 @@ watch.createMonitor(docs, (monitor) => {
 app.use(express.static(path.join(__dirname, "static")));
 
 const renderer = require("./lib/renderer");
+
 app.get("/", function (req, res) {
-    res.send(renderer.renderFile(readme));
+    let doc = renderer.renderFile(readme);
+    doc = renderer.renderNavigation(doc, nav);
+    res.send(doc);
 });
 
 app.get("/*", function (req, res) {
@@ -75,7 +78,9 @@ app.get("/*", function (req, res) {
         }
     }
     if (file) {
-        res.send(renderer.renderFile(file));
+        let doc = renderer.renderFile(file);
+        doc = renderer.renderNavigation(doc, nav);
+        res.send(doc);
     } else {
         res.status(404).send("404 | Document Not Found");
     }
