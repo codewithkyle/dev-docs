@@ -6,7 +6,7 @@
         "docs": "./server.js"
     },
     "engines": {
-        "node": ">=12.10.0"
+        "node": ">=14.0.0"
     },
     "repository": {
         "type": "git",
