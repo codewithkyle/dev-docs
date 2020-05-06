@@ -4,6 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const semver = require("semver");
 const express = require("express");
+const watch = require("watch");
 
 const cwd = process.cwd();
 
@@ -41,17 +42,24 @@ if (!fs.existsSync(readme)) {
 }
 
 const navUtil = require("./lib/navigation");
-const nav = navUtil.buildNavigation(docs);
-console.log(nav);
+let nav = navUtil.buildNavigation(docs);
+
+watch.createMonitor(docs, (monitor) => {
+    monitor.on("created", () => {
+        nav = navUtil.buildNavigation(docs);
+    });
+    monitor.on("removed", () => {
+        nav = navUtil.buildNavigation(docs);
+    });
+});
 
 const renderer = require("./lib/renderer");
-
 app.get("/", function (req, res) {
     res.send("Homepage");
 });
 
 app.get("/*", function (req, res) {
-    const slug = req.url;
+    const slug = decodeURI(req.url);
     let file = null;
     for (let i = 0; i < nav.length; i++) {
         if (nav[i].slug === slug) {

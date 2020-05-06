@@ -1,7 +1,7 @@
 {
     "name": "@codewithkyle/dev-docs",
     "version": "0.1.0",
-    "description": "",
+    "description": "Dev Docs is a simple markdown based documentation management tool.",
     "bin": {
         "docs": "./server.js"
     },
@@ -22,6 +22,7 @@
         "express": "^4.17.1",
         "glob": "^7.1.6",
         "semver": "^7.3.2",
-        "showdown": "^1.9.1"
+        "showdown": "^1.9.1",
+        "watch": "^1.0.2"
     }
 }
