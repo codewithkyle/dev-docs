@@ -54,6 +54,7 @@ article {
 
 p {
     line-height: 1.618;
+    margin: 1rem 0;
 }
 
 h1,
@@ -73,23 +74,6 @@ article h4:first-child,
 article h5:first-child,
 article h6:first-child {
     margin-top: 0 !important;
-}
-
-blockquote,
-dl,
-dd,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-figure,
-p,
-ol,
-ul {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
 }
 
 h1 {
@@ -126,7 +110,7 @@ blockquote {
     padding-right: 1rem;
     border-left: 4px solid var(--primary-500);
     background-color: var(--primary-100);
-    margin: 2rem 0;
+    margin-top: 1rem;
 }
 
 blockquote p {
@@ -138,15 +122,19 @@ blockquote p {
 p code,
 li code {
     font-family: var(--font-mono);
-    font-size: var(--font-sm);
+    font-size: var(--font-sm;
     display: inline-block;
     padding: 0 0.25rem;
+    margin: 0 0.25rem;
     border-radius: 0.125rem;
     background-color: var(--warning-200);
     color: var(--warning-900);
     overflow: hidden;
     line-height: 24px;
     vertical-align: bottom;
+    cursor: text;
+    user-select: all;
+
 }
 
 ul,

@@ -34,6 +34,8 @@ pre[class*="language-"] ::-moz-selection,
 code[class*="language-"]::-moz-selection,
 code[class*="language-"] ::-moz-selection {
     text-shadow: none;
+    background-color: var(--primary-500);
+    color: var(--white);
 }
 
 pre[class*="language-"]::selection,
@@ -41,6 +43,8 @@ pre[class*="language-"] ::selection,
 code[class*="language-"]::selection,
 code[class*="language-"] ::selection {
     text-shadow: none;
+    background-color: var(--primary-500);
+    color: var(--white);
 }
 
 @media print {
