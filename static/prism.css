@@ -56,8 +56,6 @@ code[class*="language-"] ::selection {
 
 /* Code blocks */
 pre[class*="language-"] {
-    padding: 1em;
-    margin: 0.5em 0;
     overflow: auto;
 }
 
@@ -65,7 +63,7 @@ pre[class*="language-"] {
 pre[class*="language-"] {
     background: var(--grey-100);
     border: 1px solid var(--grey-300);
-    margin: 2rem 0;
+    margin: 1rem 0 0;
 }
 
 /* Inline code */
@@ -180,8 +178,6 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
 
     /* Code blocks */
     pre[class*="language-"] {
-        padding: 1em;
-        margin: 0.5em 0;
         overflow: auto;
     }
 
@@ -189,7 +185,7 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
     pre[class*="language-"] {
         background: rgb(26, 32, 44);
         border: 1px solid rgb(45, 55, 72);
-        margin: 2rem 0;
+        margin: 1rem 0 0;
     }
 
     /* Inline code */
