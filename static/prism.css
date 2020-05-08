@@ -57,6 +57,7 @@ code[class*="language-"] ::selection {
 /* Code blocks */
 pre[class*="language-"] {
     overflow: auto;
+    padding: 1rem 1.25rem;
 }
 
 :not(pre) > code[class*="language-"],
@@ -179,6 +180,7 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
     /* Code blocks */
     pre[class*="language-"] {
         overflow: auto;
+        padding: 1rem 1.25rem;
     }
 
     :not(pre) > code[class*="language-"],
