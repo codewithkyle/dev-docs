@@ -1,9 +1,9 @@
 {
     "name": "@codewithkyle/dev-docs",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "description": "Dev Docs is a simple markdown based documentation management tool.",
     "bin": {
-        "docs": "./server.js"
+        "docs": "./cli.js"
     },
     "engines": {
         "node": ">=14.0.0"
@@ -26,7 +26,8 @@
         "normalize.css": "^8.0.1",
         "semver": "^7.3.2",
         "showdown": "^1.9.1",
-        "watch": "^1.0.2"
+        "watch": "^1.0.2",
+        "yargs": "^15.3.1"
     },
     "scripts": {
         "brixi": "brixi"
