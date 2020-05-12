@@ -33,7 +33,7 @@ npm run docs
 
 Create new documents by adding markdown files to the `docs/` directory. You can group several documents under a custom header place them together within a subdirectory.
 
-## GitHub Acitons Integration
+## GitHub Actions Integration
 
 Install the [gh-pages](https://www.npmjs.com/package/gh-pages) package and create a `nodejs.yml` file within the `.github/workflows/` directory.
 
@@ -102,7 +102,7 @@ ghPages.publish(
 );
 ```
 
-To finish adding GitHub Action automated deployment genreate a personal access token and add it as a project secret named `ACCESS_TOKEN`
+To finish adding GitHub Action automated deployment generate a personal access token and add it as a project secret named `ACCESS_TOKEN`
 
 1. Go to your GitHub profile settings
 1. Click on Developer Settings
@@ -111,4 +111,4 @@ To finish adding GitHub Action automated deployment genreate a personal access t
 1. Copy token
 1. Go to project settings
 1. Click on Secrets
-1. Add new secret named `ACCESS_TOKEN`
+1. Add a new secret named `ACCESS_TOKEN`
