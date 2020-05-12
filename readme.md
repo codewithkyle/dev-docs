@@ -32,3 +32,83 @@ npm run docs
 ## Writing Documentation
 
 Create new documents by adding markdown files to the `docs/` directory. You can group several documents under a custom header place them together within a subdirectory.
+
+## GitHub Acitons Integration
+
+Install the [gh-pages](https://www.npmjs.com/package/gh-pages) package and create a `nodejs.yml` file within the `.github/workflows/` directory.
+
+```yml
+name: Build and Deploy
+on:
+    push:
+        branches:
+            - master
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@master
+
+            - name: Setup Node and NPM
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 14.2.0
+
+            - name: Install NPM Packages
+              run: npm ci
+
+            - name: Build
+              run: npm run predeploy
+
+            - name: Deploy
+              run: npm run deploy
+              env:
+                  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+```
+
+Create the NPM scripts:
+
+```json
+"predeploy": "docs -o ./public",
+"deploy": "node ./deploy.js"
+```
+
+Create the `deploy.js` script.
+
+```javascript
+const ghPages = require("gh-pages");
+
+const NAME = "Your Name";
+const EMAIL = "Email";
+const USERNAME = "github-username";
+const PROJECT = "github-project-name";
+
+ghPages.publish(
+    "public",
+    {
+        user: {
+            name: NAME,
+            email: EMAIL,
+        },
+        repo: "https://" + process.env.ACCESS_TOKEN + "@github.com/" + USERNAME + "/" + PROJECT + ".git",
+        silent: true,
+    },
+    (error) => {
+        if (error) {
+            console.log(error);
+        }
+    }
+);
+```
+
+To finish adding GitHub Action automated deployment genreate a personal access token and add it as a project secret named `ACCESS_TOKEN`
+
+1. Go to your GitHub profile settings
+1. Click on Developer Settings
+1. Click on Person Access Tokens
+1. Generate a new token with `repo` checked
+1. Copy token
+1. Go to project settings
+1. Click on Secrets
+1. Add new secret named ACCESS_TOKEN
