@@ -29,7 +29,7 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding: 6rem 1rem;
+    padding: 6rem 1rem 0;
     color: var(--grey-800);
 }
 
@@ -40,6 +40,7 @@ main {
     grid-template-columns: 256px 1fr;
     gap: 2rem;
     margin: 0 auto;
+    padding-bottom: 6rem;
 }
 
 aside {
@@ -173,6 +174,7 @@ nav {
     max-height: 100vh;
     margin-bottom: auto;
     overflow-y: auto;
+    padding-bottom: 15vh;
     overscroll-behavior: contain;
 }
 
@@ -274,12 +276,14 @@ nav a.is-active::before {
     blockquote p {
         color: var(--white);
     }
-    p code {
+    p code,
+    li code {
         background-color: transparent;
         color: var(--warning-300);
         position: relative;
     }
-    p code::before {
+    p code::before,
+    li code::before {
         content: "";
         display: inline-block;
         width: 100%;
