@@ -29,6 +29,13 @@ Run the script
 npm run docs
 ```
 
+## Flags
+
+```sh
+    -o ./directory # Output as HTML
+    -cname ./file # CNAME file path
+```
+
 ## Writing Documentation
 
 Create new documents by adding markdown files to the `docs/` directory. You can group several documents under a custom header place them together within a subdirectory.

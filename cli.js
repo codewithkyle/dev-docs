@@ -30,6 +30,14 @@ if (mode) {
     }
     fs.mkdirSync(output);
 
+    const cname = yargs?.cname || null;
+    if (cname) {
+        const cnameFile = path.resolve(cwd, cname);
+        if (fs.existsSync(cnameFile)) {
+            fs.copyFile(cnameFile, path.join(output, "CNAME"));
+        }
+    }
+
     const docs = path.resolve(cwd, "docs");
     const navUtil = require("./lib/navigation");
     const nav = navUtil.buildNavigation(docs);
