@@ -111,4 +111,4 @@ To finish adding GitHub Action automated deployment genreate a personal access t
 1. Copy token
 1. Go to project settings
 1. Click on Secrets
-1. Add new secret named ACCESS_TOKEN
+1. Add new secret named `ACCESS_TOKEN`
