@@ -30,11 +30,11 @@ if (mode) {
     }
     fs.mkdirSync(output);
 
-    const cname = yargs?.cname || null;
+    const cname = yargs?.c || null;
     if (cname) {
         const cnameFile = path.resolve(cwd, cname);
         if (fs.existsSync(cnameFile)) {
-            fs.copyFile(cnameFile, path.join(output, "CNAME"));
+            fs.copyFileSync(cnameFile, path.join(output, "CNAME"));
         }
     }
 

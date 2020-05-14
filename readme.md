@@ -33,7 +33,7 @@ npm run docs
 
 ```sh
     -o ./directory # Output as HTML
-    -cname ./file # CNAME file path
+    -c ./file # CNAME file path
 ```
 
 ## Writing Documentation
