@@ -40,6 +40,26 @@ npm run docs
 
 Create new documents by adding markdown files to the `docs/` directory. You can group several documents under a custom header place them together within a subdirectory.
 
+## External Navigation Links
+
+Add custom external navigation links to the dynamically generated navigation structure.
+
+```json
+"devDocs": {
+    "name": "Project Name",
+    "links": [
+        {
+            "label": "GitHub Link",
+            "url": "https://github.com/"
+        },
+        {
+            "label": "NPM Link",
+            "url": "https://npmjs.com/"
+        }
+    ]
+}
+```
+
 ## GitHub Actions Integration
 
 Install the [gh-pages](https://www.npmjs.com/package/gh-pages) package and create a `nodejs.yml` file within the `.github/workflows/` directory.

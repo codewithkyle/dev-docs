@@ -168,13 +168,20 @@ li {
 nav {
     display: block;
     width: 100%;
-    position: fixed;
-    top: 0;
     padding: 1rem 0;
-    max-height: 100vh;
-    margin-bottom: auto;
-    overflow-y: auto;
-    overscroll-behavior: contain;
+}
+
+.project-name {
+    display: block;
+    font-size: var(--font-xl);
+    height: auto;
+    font-weight: var(--font-bold);
+    margin-bottom: 0.5rem;
+    color: var(--white);
+}
+
+.project-name::before {
+    display: none;
 }
 
 nav header {
@@ -184,7 +191,8 @@ nav header {
     text-transform: capitalize;
     margin-top: 2rem;
 }
-nav header:first-of-type {
+
+nav header:first-child {
     margin-top: 0;
 }
 

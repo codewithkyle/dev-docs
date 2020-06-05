@@ -5,6 +5,7 @@ const watch = require("watch");
 const boxen = require("boxen");
 
 const cwd = process.cwd();
+const packageJson = require(path.join(cwd, "package.json"));
 
 class Server {
     constructor() {
@@ -18,6 +19,7 @@ class Server {
         this.navUtil = require("./lib/navigation");
         this.nav = this.navUtil.buildNavigation(this.docs);
         this.renderer = require("./lib/renderer");
+        this.projectDetails = packageJson?.devDocs || null;
 
         this.init();
         this.startServer();
@@ -75,7 +77,7 @@ class Server {
 
         this.app.get("/", (req, res) => {
             let doc = this.renderer.renderFile(this.readme);
-            doc = this.renderer.renderNavigation(doc, this.nav);
+            doc = this.renderer.renderNavigation(doc, this.nav, this.projectDetails);
             res.send(doc);
         });
 
@@ -90,7 +92,7 @@ class Server {
             }
             if (file) {
                 let doc = this.renderer.renderFile(file);
-                doc = this.renderer.renderNavigation(doc, this.nav);
+                doc = this.renderer.renderNavigation(doc, this.nav, this.projectDetails);
                 res.send(doc);
             } else {
                 res.status(404).send("404 | Document Not Found");

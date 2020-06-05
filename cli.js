@@ -38,6 +38,7 @@ if (mode) {
         }
     }
 
+    const projectDetails = packageJson?.devDocs || null;
     const docs = path.resolve(cwd, "docs");
     const navUtil = require("./lib/navigation");
     const nav = navUtil.buildNavigation(docs);
@@ -48,7 +49,7 @@ if (mode) {
         fs.mkdirSync(outputFilePath, { recursive: true });
 
         let doc = renderer.renderFile(nav[i].file);
-        doc = renderer.renderNavigation(doc, nav);
+        doc = renderer.renderNavigation(doc, nav, projectDetails);
         fs.writeFileSync(path.join(outputFilePath, "index.html"), doc);
 
         if (nav[i].slug === "/readme") {
