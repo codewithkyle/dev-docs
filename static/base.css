@@ -66,6 +66,7 @@ h5,
 h6 {
     font-weight: var(--font-medium);
     line-height: 1.618;
+    cursor: pointer;
 }
 
 article h1:first-child,
@@ -83,27 +84,77 @@ h1 {
     padding-bottom: 0.5rem;
     margin-top: 4rem;
 }
+h1 span {
+    font-size: var(--font-2xl);
+}
 h2 {
     font-size: var(--font-2xl);
     border-bottom: 1px solid var(--grey-300);
     padding-bottom: 0.5rem;
     margin-top: 4rem;
 }
+h2 span {
+    font-size: var(--font-xl);
+}
 h3 {
     font-size: var(--font-xl);
     margin-top: 3rem;
+}
+h3 span {
+    font-size: var(--font-lg);
 }
 h4 {
     font-size: var(--font-lg);
     margin-top: 2rem;
 }
+h4 span {
+    font-size: var(--font-md);
+}
 h5 {
     font-size: var(--font-md);
     margin-top: 2rem;
 }
+h5 span {
+    font-size: var(--font-base);
+}
 h6 {
     font-size: var(--font-base);
     margin-top: 2rem;
+}
+h6 span {
+    font-size: var(--font-sm);
+}
+
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span {
+    font-weight: var(--font-light);
+    color: var(--primary-300);
+    display: inline-block;
+    margin-left: 0.5rem;
+    transition: all 150ms var(--ease-in-out);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-1px);
+}
+
+h1:hover span,
+h2:hover span,
+h3:hover span,
+h4:hover span,
+h5:hover span,
+h6:hover span,
+h1:focus-visible span,
+h2:focus-visible span,
+h3:focus-visible span,
+h4:focus-visible span,
+h5:focus-visible span,
+h6:focus-visible span {
+    opacity: 1;
+    visibility: visible;
 }
 
 blockquote {
