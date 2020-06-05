@@ -20,6 +20,7 @@ class Server {
         this.nav = this.navUtil.buildNavigation(this.docs);
         this.renderer = require("./lib/renderer");
         this.projectDetails = packageJson?.devDocs || null;
+        this.projectName = this.projectDetails?.name || "Documentation";
 
         this.init();
         this.startServer();
@@ -76,7 +77,7 @@ class Server {
         this.app.use(express.static(path.join(__dirname, "static")));
 
         this.app.get("/", (req, res) => {
-            let doc = this.renderer.renderFile(this.readme);
+            let doc = this.renderer.renderFile(this.readme, this.projectName);
             doc = this.renderer.renderNavigation(doc, this.nav, this.projectDetails);
             res.send(doc);
         });
@@ -91,7 +92,7 @@ class Server {
                 }
             }
             if (file) {
-                let doc = this.renderer.renderFile(file);
+                let doc = this.renderer.renderFile(file, this.projectName);
                 doc = this.renderer.renderNavigation(doc, this.nav, this.projectDetails);
                 res.send(doc);
             } else {
