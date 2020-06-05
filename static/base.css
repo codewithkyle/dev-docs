@@ -29,7 +29,7 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding: 6rem 1rem 0;
+    padding: 0 1rem;
     color: var(--grey-800);
 }
 
@@ -168,13 +168,12 @@ li {
 nav {
     display: block;
     width: 100%;
-    position: sticky;
+    position: fixed;
     top: 0;
-    padding: 1rem 0 1rem 0.5rem;
+    padding: 1rem 0;
     max-height: 100vh;
     margin-bottom: auto;
     overflow-y: auto;
-    padding-bottom: 15vh;
     overscroll-behavior: contain;
 }
 
