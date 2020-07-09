@@ -16,6 +16,16 @@ if (!semver.satisfies(process.version, version)) {
 const yargs = require("yargs").argv;
 const mode = yargs?.o ? 0 : 1;
 
+function toUpper(str) {
+    return str
+        .toLowerCase()
+        .split(" ")
+        .map(function (word) {
+            return word[0].toUpperCase() + word.substr(1);
+        })
+        .join(" ");
+}
+
 if (mode) {
     const Server = require("./server");
     new Server();
@@ -48,7 +58,7 @@ if (mode) {
         const outputFilePath = path.join(output, nav[i].slug);
         fs.mkdirSync(outputFilePath, { recursive: true });
 
-        let doc = renderer.renderFile(nav[i].file);
+        let doc = renderer.renderFile(nav[i].file, toUpper(nav[i].label));
         doc = renderer.renderNavigation(doc, nav, projectDetails);
         fs.writeFileSync(path.join(outputFilePath, "index.html"), doc);
 
