@@ -48,7 +48,8 @@ if (mode) {
         }
     }
 
-    const projectDetails = packageJson?.devDocs || null;
+    const projectPackage = require(path.join(process.cwd(), "package.json"));
+    const projectDetails = projectPackage?.devDocs || null;
     const docs = path.resolve(cwd, "docs");
     const navUtil = require("./lib/navigation");
     const nav = navUtil.buildNavigation(docs);
