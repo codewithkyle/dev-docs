@@ -38,7 +38,7 @@ npm run docs
 
 ## Writing Documentation
 
-Create new documents by adding markdown files to the `docs/` directory. You can group several documents under a custom header place them together within a subdirectory.
+Create new documents by adding markdown files to the `docs/` directory. You can group several documents under a custom header by placing the files together within a subdirectory.
 
 ## External Navigation Links
 
