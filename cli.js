@@ -45,7 +45,22 @@ if (mode) {
         const cnameFile = path.resolve(cwd, cname);
         if (fs.existsSync(cnameFile)) {
             fs.copyFileSync(cnameFile, path.join(output, "CNAME"));
+        } else {
+            console.warn(`${cnameFile} does not exist`);
         }
+    }
+
+    let favicon = yargs?.f || null;
+    if (favicon){
+        const faviconFile = path.resolve(cwd, favicon);
+        favicon = faviconFile.replace(/.*[\\\/]/, "").trim();
+        if (fs.existsSync(faviconFile)){
+            fs.copyFileSync(faviconFile, path.join(output, favicon));
+        } else {
+            console.warn(`${faviconFile} does not exist`);
+        }
+    } else {
+        favicon = "favicon.png";
     }
 
     const projectPackage = require(path.join(process.cwd(), "package.json"));
@@ -59,7 +74,7 @@ if (mode) {
         const outputFilePath = path.join(output, nav[i].slug);
         fs.mkdirSync(outputFilePath, { recursive: true });
 
-        let doc = renderer.renderFile(nav[i].file, toUpper(nav[i].label), projectDetails);
+        let doc = renderer.renderFile(nav[i].file, toUpper(nav[i].label), projectDetails, favicon);
         doc = renderer.renderNavigation(doc, nav, projectDetails);
         fs.writeFileSync(path.join(outputFilePath, "index.html"), doc);
 

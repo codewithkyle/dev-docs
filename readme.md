@@ -34,6 +34,7 @@ npm run docs
 ```sh
     -o ./directory # Output as HTML
     -c ./file # CNAME file path
+    -f ./file # Favicon file path
 ```
 
 ## Writing Documentation
@@ -47,6 +48,7 @@ Add custom external navigation links to the dynamically generated navigation str
 ```json
 "devDocs": {
     "name": "Project Name",
+    "description": "Project description used for pages meta description element",
     "links": [
         {
             "label": "GitHub Link",
