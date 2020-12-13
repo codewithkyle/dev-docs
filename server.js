@@ -33,8 +33,11 @@ class Server {
         }
 
         if (!fs.existsSync(this.readme)) {
-            fs.writeFileSync(this.readme, "Start here");
-            fs.copyFileSync(path.join(__dirname, "readme.md"), this.readme);
+            this.readme = path.join(cwd, "readme.md");
+            if (!fs.existsSync(this.readme)){
+                fs.writeFileSync(path.join(this.docs, "readme.md"), "Start Here");
+                this.readme = path.join(this.docs, "readme.md");
+            }
         }
 
         if (!fs.existsSync(path.join(__dirname, "static", "normalize.css"))) {
@@ -77,9 +80,13 @@ class Server {
         this.app.use(express.static(path.join(__dirname, "static")));
 
         this.app.get("/", (req, res) => {
-            let doc = this.renderer.renderFile(this.readme, this.projectName);
-            doc = this.renderer.renderNavigation(doc, this.nav, this.projectDetails);
-            res.send(doc);
+            if (this.readme){
+                let doc = this.renderer.renderFile(this.readme, this.projectName);
+                doc = this.renderer.renderNavigation(doc, this.nav, this.projectDetails);
+                res.send(doc);
+            } else {
+                res.status(404).send("404 | Document Not Found");
+            }
         });
 
         this.app.get("/*", (req, res) => {

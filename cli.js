@@ -59,7 +59,7 @@ if (mode) {
         const outputFilePath = path.join(output, nav[i].slug);
         fs.mkdirSync(outputFilePath, { recursive: true });
 
-        let doc = renderer.renderFile(nav[i].file, toUpper(nav[i].label));
+        let doc = renderer.renderFile(nav[i].file, toUpper(nav[i].label), projectDetails);
         doc = renderer.renderNavigation(doc, nav, projectDetails);
         fs.writeFileSync(path.join(outputFilePath, "index.html"), doc);
 
