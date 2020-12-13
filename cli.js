@@ -46,7 +46,7 @@ if (mode) {
         if (fs.existsSync(cnameFile)) {
             fs.copyFileSync(cnameFile, path.join(output, "CNAME"));
         } else {
-            console.warn(`${cnameFile} does not exist`);
+            console.warn(`Warning: ${cnameFile} does not exist`);
         }
     }
 
@@ -57,7 +57,7 @@ if (mode) {
         if (fs.existsSync(faviconFile)){
             fs.copyFileSync(faviconFile, path.join(output, favicon));
         } else {
-            console.warn(`${faviconFile} does not exist`);
+            console.warn(`Warning: ${faviconFile} does not exist`);
         }
     } else {
         favicon = "favicon.png";

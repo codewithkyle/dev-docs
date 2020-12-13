@@ -1,6 +1,6 @@
 # Dev Docs
 
-Dev Docs is a simple markdown based documentation management tool created by [Kyle Andrews](https://kyleandrews.dev/). Simply create markdown files within the generated `docs/` directory and run the `docs` command. No hassle, no fuss, just documentation in a minimalist style.
+Dev Docs is a simple markdown based documentation management tool. Simply create markdown files within the generated `docs/` directory and run the `docs` command. No hassle, no fuss, just documentation in a minimalist style.
 
 ### Features
 
@@ -33,8 +33,8 @@ npm run docs
 
 ```sh
     -o ./directory # Output as HTML
-    -c ./file # CNAME file path
-    -f ./file # Favicon file path
+    -c ./file # CNAME file path (optional)
+    -f ./file # Favicon file path (optional)
 ```
 
 ## Writing Documentation
