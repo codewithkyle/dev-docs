@@ -3,6 +3,7 @@ const path = require("path");
 const express = require("express");
 const watch = require("watch");
 const boxen = require("boxen");
+const yargs = require("yargs").argv;
 
 const cwd = process.cwd();
 const packageJson = require(path.join(cwd, "package.json"));
@@ -10,7 +11,7 @@ const packageJson = require(path.join(cwd, "package.json"));
 class Server {
     constructor() {
         this.app = express();
-        this.port = 5000;
+        this.port = yargs?.p || yargs?.port || 5000;
         this.interfaces = require("os").networkInterfaces();
 
         this.docs = path.join(cwd, "docs");

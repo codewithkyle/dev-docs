@@ -1,6 +1,6 @@
 {
     "name": "@codewithkyle/dev-docs",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "Dev Docs is a simple markdown based documentation management tool.",
     "bin": {
         "docs": "./cli.js"
@@ -13,7 +13,7 @@
         "url": "git+https://github.com/codewithkyle/dev-docs.git"
     },
     "author": "",
-    "license": "GPL-3",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/codewithkyle/dev-docs/issues"
     },
