@@ -35,6 +35,7 @@ npm run docs
     -o ./directory # Output as HTML
     -c ./file # CNAME file path (optional)
     -f ./file # Favicon file path (optional)
+    -p 5000 # Set the documentation server port (optional)
 ```
 
 ## Writing Documentation
