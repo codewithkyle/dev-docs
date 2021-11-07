@@ -1,6 +1,6 @@
 {
   "name": "@codewithkyle/dev-docs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Dev Docs is a simple markdown based documentation management tool.",
   "bin": {
     "docs": "./cli.js"

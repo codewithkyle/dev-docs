@@ -19,7 +19,7 @@ return`
     <link href="/css/subnav.css" rel="stylesheet">
 
     <link rel="stylesheet" href="/static/highlight.css">
-    <script defer src="/static/highlight.js"></script>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@^11/highlight.min.js"></script>
 
     <script type="module" src="/js/bootstrap.js"></script>
 </head>
@@ -92,7 +92,7 @@ return`
     <link href="/css/subnav.css" rel="stylesheet">
 
     <link rel="stylesheet" href="/static/highlight.css">
-    <script defer src="/static/highlight.js"></script>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@^11/highlight.min.js"></script>
 
     <script type="module" src="/js/bootstrap.js"></script>
 </head>
