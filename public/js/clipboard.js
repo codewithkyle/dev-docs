@@ -1,0 +1,1 @@
+const t=document.querySelector("#clipboard-input");async function o(c){try{await navigator.clipboard.writeText(c)}catch{t.value=c,t.select(),document.execCommand("copy"),t.blur()}}export{o as copyToClipboard};

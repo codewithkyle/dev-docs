@@ -1,35 +1,42 @@
 {
-    "name": "@codewithkyle/dev-docs",
-    "version": "0.2.1",
-    "description": "Dev Docs is a simple markdown based documentation management tool.",
-    "bin": {
-        "docs": "./cli.js"
-    },
-    "engines": {
-        "node": ">=14.0.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/codewithkyle/dev-docs.git"
-    },
-    "author": "",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/codewithkyle/dev-docs/issues"
-    },
-    "homepage": "https://github.com/codewithkyle/dev-docs#readme",
-    "dependencies": {
-        "boxen": "^4.2.0",
-        "brixi": "^0.2.1",
-        "express": "^4.17.1",
-        "glob": "^7.1.6",
-        "normalize.css": "^8.0.1",
-        "semver": "^7.3.2",
-        "showdown": "^1.9.1",
-        "watch": "^1.0.2",
-        "yargs": "^15.3.1"
-    },
-    "scripts": {
-        "brixi": "brixi"
-    }
+  "name": "@codewithkyle/dev-docs",
+  "version": "1.0.0",
+  "description": "Dev Docs is a simple markdown based documentation management tool.",
+  "bin": {
+    "docs": "./cli.js"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "bundle": "node ./build/bundle.js",
+    "brixi": "brixi && mv ./brixi/brixi.css ./client/brixi.css && rmdir ./brixi",
+    "build": "run-s build:*",
+    "build:js": "twist --src=./client --outDir=./public/js",
+    "build:css": "cssmonster",
+    "test": "node ./cli.js -o test && serve ./test"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "glob": "^7.2.0",
+    "marked": "^4.0.0"
+  },
+  "devDependencies": {
+    "@codewithkyle/messaging": "^1.0.2",
+    "@codewithkyle/pubsub": "^1.1.1",
+    "@codewithkyle/supercomponent": "^1.2.0",
+    "@codewithkyle/twist": "^1.5.0",
+    "brixi": "^0.4.1",
+    "cssmonster": "^0.4.0",
+    "esinstall": "^1.1.7",
+    "lit-html": "^1.4.1",
+    "npm-run-all": "^4.1.5",
+    "serve": "^13.0.2"
+  },
+  "bundle": [
+    "@codewithkyle/messaging",
+    "@codewithkyle/supercomponent",
+    "lit-html"
+  ]
 }

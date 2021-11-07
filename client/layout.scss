@@ -1,0 +1,177 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: block;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--grey-800);
+
+    @media (prefers-color-scheme: dark) {
+        color: var(--white);
+        background-color: var(--grey-900);
+    }
+
+    header{
+        width: 100%;
+        height: 48px;
+        border-bottom: 1px solid var(--grey-300);
+        padding: 0 1rem;
+
+        @media (prefers-color-scheme: dark) {
+            border-bottom-color: var(--grey-800);
+        }
+
+        #logo{
+            display: none;
+
+            @media (min-width:768px){
+                display: inline-block;
+            }
+        }
+
+        #nav-menu{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.25rem;
+            border: 1px solid var(--grey-300);
+            position: relative;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            color: var(--grey-600);
+            transition: all 75ms var(--ease-in-out);
+
+            &:hover,
+            &:focus-visible{
+                color: var(--grey-700);
+                border-color: var(--grey-400);
+            }
+
+            &:active{
+                box-shadow: 0 0 0 3px var(--grey-100);
+            }
+
+            &::before{
+                content: "";
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: var(--grey-500);
+                opacity: 0;
+                transition: all 75ms var(--ease-in-out);
+            }
+            
+            @media (prefers-color-scheme: dark) {
+                border-color: var(--grey-800);
+                color: var(--white);
+
+                &:hover,
+                &:focus-visible{
+                    color: var(--white);
+                    border-color: var(--grey-700);
+                }
+
+                &:active{
+                    box-shadow: none;
+                }
+            }
+
+            @media (min-width:768px){
+                display: none;
+            }
+
+            .menu-icon{
+                display: block;
+
+                html.menu-open & {
+                    display: none;
+                }
+            }
+
+            .close-icon{
+                display: none;
+
+                html.menu-open & {
+                    display: block;
+                }
+            }
+
+            svg{
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        nav{
+            display: none;
+            align-items: center;
+            flex-flow: row nowrap;
+            height: 100%;
+
+            @media (min-width: 411px){
+                display: inline-flex;
+            }
+
+            a{
+                width: 36px;
+                height: 36px;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                color: var(--grey-500);
+                transition: all 75ms var(--ease-in-out);
+    
+                &:hover,
+                &:focus-visible{
+                    color: var(--grey-600);
+                }
+            }
+
+            span:not(:only-child){
+                margin-right: 0.25rem;
+            }
+        }
+    }
+
+    main{
+        display: grid;
+        width: calc(100vw + 250px);
+        transform: translateX(-250px);
+        height: calc(100% - 48px);
+        grid-template-columns: 250px 1fr 0px;
+        transition: transform 150ms var(--ease-out);
+
+        html.menu-open & {
+            transform: translateX(0) !important;
+            transition: transform 300ms var(--ease-in);
+        }
+
+        @media (min-width: 768px){
+            width: 100vw;
+            transform: none !important;
+        }
+
+        @media (min-width: 1024px){
+            grid-template-columns: 250px 1fr 200px;
+        }
+    
+        subnav-component{
+            display: none;
+    
+            @media (min-width: 1024px){
+                display: block;
+            }
+        }
+    }
+
+    #clipboard-input{
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        opacity: 0;
+    }
+}

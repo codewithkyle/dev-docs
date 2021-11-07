@@ -1,0 +1,26 @@
+subnav-component,
+static-subnav-component{
+    padding: 1rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    a{
+        display: block;
+        font-size: var(--font-xs);
+        color: var(--primary-700);
+        transition: all 75ms var(--ease-in-out);
+        line-height: 1.618;
+        margin-bottom: 0.25rem;
+        text-transform: capitalize;
+
+        &:hover,
+        &:focus-visible{
+            color: var(--primary-600);
+            text-decoration: underline;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            color: var(--primary-400);
+        }
+    }
+}

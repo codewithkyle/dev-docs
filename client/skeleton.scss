@@ -1,0 +1,76 @@
+.skeleton {
+    display: inline-block;
+    position: relative;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    background-color: var(--grey-100);
+
+    &.-image {
+        &::before {
+            content: "";
+            display: block;
+            width: 100%;
+            padding-bottom: 75%;
+        }
+
+        &.-round {
+            border-radius: 50%;
+
+            &::before {
+                padding-bottom: 100%;
+            }
+        }
+    }
+
+    &.-heading {
+        height: 36px;
+    }
+
+    &.-copy {
+        height: 24px;
+    }
+
+    &.-button {
+        height: 36px;
+        width: 96px;
+    }
+
+    &.-primary {
+        background-color: var(--primary-100);
+
+        &::after {
+            background-color: var(--primary-200);
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-color: var(--grey-200);
+        animation: skeletonPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background-color: var(--grey-800);
+
+        &::after{
+            background-color: var(--grey-700);
+        }       
+    }
+}
+@keyframes skeletonPulse {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

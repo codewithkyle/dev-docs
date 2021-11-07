@@ -32,10 +32,11 @@ npm run docs
 ## Flags
 
 ```sh
-    -o ./directory # Output as HTML
-    -c ./file # CNAME file path (optional)
-    -f ./file # Favicon file path (optional)
-    -p 5000 # Set the documentation server port (optional)
+    -o --output     # Output as static HTML (optional)
+    -c --cname      # CNAME file path (only required for static rendering)
+    -f --favicon    # Favicon file path (optional)
+    -p --port       # Set the documentation server port (optional, defaults to 5000)
+    -s --src        # Location of the markdown files (optional, defaults to ./docs)
 ```
 
 ## Writing Documentation
@@ -44,22 +45,14 @@ Create new documents by adding markdown files to the `docs/` directory. You can 
 
 ## External Navigation Links
 
-Add custom external navigation links to the dynamically generated navigation structure.
+Add custom external navigation links to the dynamically generated navigation structure (optional).
 
 ```json
-"devDocs": {
-    "name": "Project Name",
-    "description": "Project description used for pages meta description element",
-    "links": [
-        {
-            "label": "GitHub Link",
-            "url": "https://github.com/"
-        },
-        {
-            "label": "NPM Link",
-            "url": "https://npmjs.com/"
-        }
-    ]
+"docs": {
+    "name": "Overwrite project name",
+    "description": "Overwrite project description",
+    "github": "https://github.com/",
+    "npm": "https://npmjs.com/"
 }
 ```
 
@@ -100,7 +93,7 @@ jobs:
 Create the NPM scripts:
 
 ```json
-"predeploy": "docs -o ./public",
+"predeploy": "docs -o ./public -c ./CNAME",
 "deploy": "node ./deploy.js"
 ```
 
