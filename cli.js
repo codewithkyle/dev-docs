@@ -72,7 +72,7 @@ let favicon = yargs?.f || yargs?.favicon || null;
             const raw = fs.readFileSync(file, { encoding: "utf-8"});
             const docHTML = marked.parse(raw);
             const slug = file.replace(basePath, "").replace(/(\.md)$/, "").replace(/[\\\/]/, "");
-            const html = renderStaticPage(details.name, details.description, details.keywords, details.github, details.bugs, details.npn, details.version, docHTML, nav, favicon, slug);
+            const html = renderStaticPage(details.name, details.description, details.keywords, details.github, details.bugs, details.npm, details.version, docHTML, nav, favicon, slug);
             const outFile = file.replace(basePath, "").replace(/(\.md)$/i, ".html");
             const outDir = path.join(output, outFile.match(/.*[\\\/]/)[0]);
             if (!fs.existsSync(outDir)){
