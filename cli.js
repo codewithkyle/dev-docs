@@ -103,8 +103,12 @@ let favicon = yargs?.f || yargs?.favicon || null;
         });
 
         const readme = path.join(output, "readme.html");
+        const intro = path.join(output, "introduction.html");
         if (fs.existsSync(readme)){
             fs.copyFileSync(readme, path.join(output, "index.html"));
+        }
+        else if (fs.existsSync(intro)){
+            fs.copyFileSync(intro, path.join(output, "index.html"));
         }
     }
 })();
