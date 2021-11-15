@@ -1,6 +1,6 @@
 {
   "name": "@codewithkyle/dev-docs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Dev Docs is a simple markdown based documentation management tool.",
   "bin": {
     "docs": "./cli.js"
@@ -20,7 +20,8 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "glob": "^7.2.0",
-    "marked": "^4.0.0"
+    "marked": "^4.0.0",
+    "yargs": "^17.2.1"
   },
   "devDependencies": {
     "@codewithkyle/messaging": "^1.0.2",
