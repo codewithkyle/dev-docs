@@ -14,7 +14,7 @@
         "build": "run-s build:*",
         "build:js": "twist --src=./client --outDir=./public/js",
         "build:css": "cssmonster",
-        "test": "node ./cli.js -o test && serve ./test"
+        "test": "node ./cli.js test && serve ./test"
     },
     "dependencies": {
         "dotenv": "^10.0.0",
@@ -28,7 +28,7 @@
         "@codewithkyle/pubsub": "^1.1.1",
         "@codewithkyle/supercomponent": "^1.3.0",
         "@codewithkyle/twist": "^1.5.0",
-        "brixi": "^0.4.1",
+        "brixi": "^0.6.1",
         "cssmonster": "^0.4.0",
         "esinstall": "^1.1.7",
         "lit-html": "^1.4.1",

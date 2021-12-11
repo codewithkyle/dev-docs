@@ -10,12 +10,12 @@ customElements.define("doc-view", View);
 import Subnav from "./subnav";
 customElements.define("subnav-component", Subnav);
 
-if (location.pathname === "/"){
+if (location.pathname === "/") {
     message({
         recipient: "renderer",
         data: {
             slug: "readme",
-            origin: "fs"
+            origin: "fs",
         },
     });
 } else {
@@ -24,7 +24,7 @@ if (location.pathname === "/"){
         recipient: "renderer",
         data: {
             slug: route,
-            origin: "fs"
+            origin: "fs",
         },
     });
 }
