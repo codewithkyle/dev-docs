@@ -14,7 +14,7 @@
         "build": "run-s build:*",
         "build:js": "twist --src=./client --outDir=./public/js",
         "build:css": "cssmonster",
-        "test": "node ./cli.js test && serve ./test"
+        "test": "node ./cli.js -o test -c ./cname && serve ./test"
     },
     "dependencies": {
         "dotenv": "^10.0.0",
@@ -39,5 +39,11 @@
         "@codewithkyle/messaging",
         "@codewithkyle/supercomponent",
         "lit-html"
-    ]
+    ],
+    "docs": {
+        "seo": {
+            "url": "http://localhost:3000",
+            "banner": "./banner.png"
+        }
+    }
 }
