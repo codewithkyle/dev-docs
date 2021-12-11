@@ -356,11 +356,14 @@ static-doc-view {
 
     table {
         display: block;
-        width: 100%;
-        border: 1px solid var(--grey-300);
+        max-width: 100%;
+        overflow: auto;
+        width: max-content;
         border-radius: 0.5rem;
         margin-top: 1rem;
-        overflow: hidden;
+        font-size: 0;
+        border-spacing: 0;
+        border-collapse: collapse;
 
         @media (prefers-color-scheme: dark) {
             border-color: var(--grey-800);
@@ -368,77 +371,73 @@ static-doc-view {
 
         thead {
             background-color: var(--grey-300);
-            border-bottom: 1px solid var(--grey-300);
-            display: block;
-            width: 100%;
+            display: table-header-group;
 
             @media (prefers-color-scheme: dark) {
-                background-color: var(--grey-900);
-                border-bottom-color: var(--grey-800);
+                background-color: var(--grey-700);
             }
 
             tr {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(0px, 1fr));
-                width: 100%;
-                padding: 1rem;
-                gap: 1rem;
+                display: table-row;
 
                 th {
-                    width: 100%;
-                    flex: 1;
                     text-align: left;
                     color: var(--grey-700);
                     font-size: var(--font-sm);
+                    padding: 1rem;
+                    display: table-cell;
+                    white-space: nowrap;
+
+                    &:first-of-type {
+                        padding-left: 2rem;
+                    }
+
+                    &:last-of-type {
+                        padding-right: 2rem;
+                    }
 
                     @media (prefers-color-scheme: dark) {
                         color: var(--grey-200);
+                        border-bottom-color: var(--grey-800);
                     }
                 }
             }
         }
 
         tbody {
-            display: block;
-            width: 100%;
+            display: table-row-group;
 
             tr {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(0px, 1fr));
-                gap: 1rem;
-                width: 100%;
-                padding: 0.5rem 1rem;
-                background-color: var(--white);
+                display: table-row;
+                background-color: var(--grey-200);
 
                 &:nth-child(even) {
-                    background-color: #f9fafb;
-                }
-
-                &:not(:last-of-type) {
-                    border-bottom: 1px solid var(--grey-300);
+                    background-color: var(--grey-50);
                 }
 
                 @media (prefers-color-scheme: dark) {
-                    background-color: var(--grey-900);
+                    background-color: var(--grey-800);
 
                     &:nth-child(even) {
-                        background-color: var(--grey-900);
-                    }
-
-                    &:not(:last-of-type) {
-                        border-bottom-color: var(--grey-800);
+                        background-color: var(--grey-700);
                     }
                 }
 
                 td {
-                    width: 100%;
-                    flex: 1;
                     text-align: left;
                     color: var(--grey-700);
                     font-size: var(--font-sm);
-                    overflow: hidden;
-                    display: inline-flex;
+                    display: table-cell;
                     align-items: center;
+                    padding: 1rem;
+
+                    &:first-of-type {
+                        padding-left: 2rem;
+                    }
+
+                    &:last-of-type {
+                        padding-right: 2rem;
+                    }
 
                     @media (prefers-color-scheme: dark) {
                         color: var(--grey-200);
