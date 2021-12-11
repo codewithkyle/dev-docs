@@ -374,7 +374,7 @@ static-doc-view {
             display: table-header-group;
 
             @media (prefers-color-scheme: dark) {
-                background-color: var(--grey-700);
+                background-color: var(--grey-800);
             }
 
             tr {
@@ -416,10 +416,10 @@ static-doc-view {
                 }
 
                 @media (prefers-color-scheme: dark) {
-                    background-color: var(--grey-800);
+                    background-color: var(--grey-700);
 
                     &:nth-child(even) {
-                        background-color: var(--grey-700);
+                        background-color: var(--grey-800);
                     }
                 }
 
